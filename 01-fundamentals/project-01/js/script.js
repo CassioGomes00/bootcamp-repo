@@ -29,7 +29,9 @@ function mapElements() {
 function handleNameList(operation = '', index = 0, content = 0) {
   try {
     const insertName = (content) => {
-      globalNames.push(content);
+      if (content !== '') {
+        globalNames.push(content);
+      }
     };
 
     const deleteName = (index) => {
