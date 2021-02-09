@@ -6,7 +6,7 @@ Esse repositório contém projetos desenvolvidos durante um bootcamp full stack,
 
 ## Organização
 
-Os projetos estão divididos por assunto (fundamentos, node, react, etc ) e tipo (projetos guiados e não guiados) em pastas.
+Os projetos estão divididos por assunto (fundamentos, node, react, etc ) em pastas.
 
 ## Projetos
 
