@@ -26,7 +26,7 @@ function mapElements() {
   }
 }
 
-function handleNameList(operation = '', index = 0, content = 0) {
+function handleNameList(operation = '', index = 0, content = '') {
   try {
     const insertName = (content) => {
       if (content !== '') {
@@ -39,7 +39,11 @@ function handleNameList(operation = '', index = 0, content = 0) {
     };
 
     const editName = (index, content) => {
-      globalNames[index] = content;
+      if (content !== '') {
+        globalNames[index] = content;
+      } else {
+        deleteName(index);
+      }
     };
 
     switch (operation) {
@@ -53,6 +57,10 @@ function handleNameList(operation = '', index = 0, content = 0) {
 
       case 'E':
         editName(index, content);
+        break;
+
+      default:
+        new Error('Invalid operation!');
         break;
     }
 
@@ -176,7 +184,7 @@ function render(editedIndex = -1) {
 
     initializeInput(inputText, '');
     divList.textContent = '';
-    
+
     const ul = createUl(editedIndex);
 
     divList.appendChild(ul);
