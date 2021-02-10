@@ -78,8 +78,12 @@ function handleInputText() {
 }
 
 function initializeInput(input, value) {
-  input.value = value;
-  input.focus();
+  try {
+    input.value = value;
+    input.focus();
+  } catch (error) {
+    throw error;
+  }
 }
 
 // Renders
@@ -146,7 +150,7 @@ function render(editedIndex = -1) {
         const inputEdit = createInputEdit(index, name);
 
         li.appendChild(inputEdit);
-        initializeInput(inputEdit, inputEdit.value);
+        initializeInput(inputEdit, inputEdit.value); // Does not work
       } else {
         const buttonDelete = createButtonDelete(index);
         const spanName = createSpanName(index, name);
@@ -158,16 +162,23 @@ function render(editedIndex = -1) {
       return li;
     };
 
+    const createUl = (editedIndex) => {
+      const ul = document.createElement('ul');
+
+      globalNames.map((name, index) => {
+        const li = createLi(name, index, editedIndex);
+
+        ul.appendChild(li);
+      });
+
+      return ul;
+    };
+
     initializeInput(inputText, '');
+    divList.textContent = '';
+    
+    const ul = createUl(editedIndex);
 
-    const ul = document.createElement('ul');
-
-    globalNames.map((name, index) => {
-      const li = createLi(name, index, editedIndex);
-
-      ul.appendChild(li);
-    });
-    divList.innerHTML = '';
     divList.appendChild(ul);
   } catch (error) {
     throw error;
