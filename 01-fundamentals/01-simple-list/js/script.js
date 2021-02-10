@@ -19,8 +19,8 @@ window.addEventListener('load', () => {
 
 function mapElements() {
   try {
-    inputText = document.getElementById('input-text');
-    divList = document.getElementById('div-list');
+    inputText = document.querySelector('#input-text');
+    divList = document.querySelector('#div-list');
   } catch (error) {
     throw error;
   }
@@ -90,7 +90,7 @@ function render(editedIndex = -1) {
       const buttonDelete = document.createElement('button');
 
       buttonDelete.id = id;
-      buttonDelete.className = 'btn red button-delete';
+      buttonDelete.classList.add('btn', 'red', 'button-delete');
       buttonDelete.innerText = 'X';
 
       buttonDelete.addEventListener('click', (event) => {
@@ -106,7 +106,7 @@ function render(editedIndex = -1) {
       const spanName = document.createElement('span');
 
       spanName.id = id;
-      spanName.className = 'span-name';
+      spanName.classList.add('span-name');
       spanName.innerText = name;
 
       spanName.addEventListener('click', (event) => {
@@ -140,7 +140,7 @@ function render(editedIndex = -1) {
     const createLi = (name, index, editedIndex) => {
       const li = document.createElement('li');
 
-      li.className = 'left-align';
+      li.classList.add('left-align');
 
       if (index === editedIndex) {
         const inputEdit = createInputEdit(index, name);
