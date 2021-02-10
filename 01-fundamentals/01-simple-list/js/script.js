@@ -29,9 +29,7 @@ function mapElements() {
 function handleNameList(operation = '', index = 0, content = '') {
   try {
     const insertName = (content) => {
-      if (content !== '') {
-        globalNames.push(content);
-      }
+      globalNames.push(content);
     };
 
     const deleteName = (index) => {
@@ -39,11 +37,7 @@ function handleNameList(operation = '', index = 0, content = '') {
     };
 
     const editName = (index, content) => {
-      if (content !== '') {
-        globalNames[index] = content;
-      } else {
-        deleteName(index);
-      }
+      globalNames[index] = content;
     };
 
     switch (operation) {
@@ -76,7 +70,7 @@ function handleInputText() {
       const { key, target } = event;
       const { value } = target;
 
-      if (key === 'Enter') {
+      if (key === 'Enter' && value !== '') {
         handleNameList('I', null, value);
       }
     });
@@ -142,7 +136,15 @@ function render(editedIndex = -1) {
         const { value, id } = target;
 
         if (key === 'Enter') {
-          handleNameList('E', parseInt(id), value);
+          if (value === '') {
+            handleNameList('D', parseInt(id));
+          } else {
+            handleNameList('E', parseInt(id), value);
+          }
+        }
+
+        if (key === 'Escape') {
+          render(-1);
         }
       });
 
