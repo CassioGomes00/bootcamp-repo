@@ -91,7 +91,7 @@ function render(editedIndex = -1) {
 
       buttonDelete.id = id;
       buttonDelete.classList.add('btn', 'red', 'button-delete');
-      buttonDelete.innerText = 'X';
+      buttonDelete.textContent = 'X';
 
       buttonDelete.addEventListener('click', (event) => {
         const { id } = event.target;
@@ -107,7 +107,7 @@ function render(editedIndex = -1) {
 
       spanName.id = id;
       spanName.classList.add('span-name');
-      spanName.innerText = name;
+      spanName.textContent = name;
 
       spanName.addEventListener('click', (event) => {
         const { id } = event.target;
