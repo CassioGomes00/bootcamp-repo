@@ -2,11 +2,7 @@
 
 ## Introdução
 
-Esse repositório contém projetos desenvolvidos durante um bootcamp full stack, ofertado pelo IGTI, que cursei.
-
-## Organização
-
-Os projetos estão divididos por assunto (fundamentos, node, react, etc ) em pastas.
+Esse repositório contém projetos referentes a um bootcamp full stack, ofertado pelo IGTI, que cursei.
 
 ## Projetos
 

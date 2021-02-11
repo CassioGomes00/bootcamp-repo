@@ -27,7 +27,6 @@ function handleInputRange() {
   try {
     inputRange.addEventListener('input', (event) => {
       const { value } = event.target;
-
       render(value);
     });
   } catch (error) {
