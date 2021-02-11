@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Cardinal numbers</title>
+  </head>
+  <body>
+    <div class="container center">
+      <h1>Cardinal numbers</h1>
+
+      <div class="range-field">
+        <input id="input-range" type="range" min="0" max="999" step="1" />
+        <label for="input-range">Choose a number</label>
+      </div>
+
+      <div class="input-field">
+        <label for="input-number">Choosed number</label><br />
+
+        <input type="text" id="input-number" disabled readonly />
+      </div>
+
+      <div class="input-field">
+        <label for="input-full-number">Full number</label><br />
+
+        <input type="text" id="input-full-number" disabled readonly />
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
