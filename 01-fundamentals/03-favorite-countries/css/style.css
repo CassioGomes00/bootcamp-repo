@@ -1,0 +1,10 @@
+#div-parent {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+img {
+  width: 50px;
+}
