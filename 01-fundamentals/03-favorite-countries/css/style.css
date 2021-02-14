@@ -1,10 +1,40 @@
+img {
+  width: 100px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+button {
+  height: 100px;
+}
+
 #div-parent {
   display: flex;
   flex-direction: row;
+
   padding: 10px;
-  border: 1px solid grey;
 }
 
-img {
-  width: 50px;
+.horizontal-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: fit-content;
+}
+
+.p-number-countries {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.p-total-population {
+  font-size: 1.1rem;
+}
+
+.div-countries {
+  margin: 0px auto;
+}
+
+.li-country-name {
+  font-weight: bold;
 }
