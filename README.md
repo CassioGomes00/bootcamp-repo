@@ -8,6 +8,8 @@ Esse repositório contém projetos referentes a um bootcamp full stack, ofertado
 
 ### Fundamentos
 
+Esta seção contém projetos do começo do curso, focados em HTML, CSS e JavaScript puros.
+
 #### Simple list
 
 [Simple list](./01-fundamentals/01-simple-list) é uma aplicação de geração de listas simples. Ela possui, em essência, um campo para a entrada de texto. Ao se pressionar a tecla Enter, o conteúdo deste campo será adicionado à lista, desde que não seja vazio.
@@ -24,6 +26,12 @@ Abaixo, existem dois campos de texto. O primeiro mostra o número selecionado at
 
 ### Node.js
 
+Esta seção está focada em projetos backend, com uso do Node.js para manipulação de arquivos e desenvolvimento de APIs.
+
 ### React.js
 
+Esta sessão é focada em frontend, com uso de React.js. Possui projetos tanto somente com frontend, quanto alguns em que ele se comunica com um backend.
+
 ### MongoDB
+
+Esta seção explora conceitos de integração de aplicações com bancos de dados MongoDB, sejam eles locais ou remotos.
