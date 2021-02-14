@@ -54,6 +54,7 @@ async function mapCountries(url) {
     });
 }
 
+// Render services
 function calculateStats(countries) {
   const numberCountries = countries.length;
   const totalPopulation = countries.reduce((accumulator, current) => {
@@ -63,7 +64,7 @@ function calculateStats(countries) {
   return { numberCountries, totalPopulation };
 }
 
-function getCountriesByFavorite(isFavorite) {
+function getCountriesByIsFavorite(isFavorite) {
   return globalCountries.filter((country) => {
     return country.isFavorite === isFavorite;
   });
@@ -77,23 +78,24 @@ function chooseCountriesDiv(countries) {
   if (isFavorite) {
     return divFavorites;
   }
+
   return divNonFavorites;
 }
 
 function toggleFavorite(index) {
   const { isFavorite } = globalCountries[index];
-
   globalCountries[index].isFavorite = !isFavorite;
-
-  console.log(globalCountries[index]);
 }
 
 function render() {
   try {
-    const createPStats = (label = '', value = 0) => {
+    //Stats
+    const createPStats = (label = '', value = 0, elementClass = '') => {
       const pStats = document.createElement('p');
 
       pStats.textContent = `${label}: ${value}`;
+      pStats.classList.add('left-align');
+      pStats.classList.add(elementClass);
 
       return pStats;
     };
@@ -103,13 +105,15 @@ function render() {
       const stats = calculateStats(countries);
 
       const pNumberCountries = createPStats(
-        'Number of countries',
-        stats.numberCountries
+        'Countries',
+        stats.numberCountries,
+        'p-number-countries'
       );
 
       const pTotalPopulation = createPStats(
         'Total population',
-        stats.totalPopulation
+        stats.totalPopulation,
+        'p-total-population'
       );
 
       divStats.appendChild(pNumberCountries);
@@ -118,6 +122,7 @@ function render() {
       return divStats;
     };
 
+    //List
     const createButtonToggleFavorite = (country) => {
       const buttonToggleFavorite = document.createElement('button');
       const { isFavorite, numericCode } = country;
@@ -156,10 +161,11 @@ function render() {
       return imgFlag;
     };
 
-    createLiCountryStats = (content) => {
+    createLiCountryStats = (content, elementClass = '') => {
       const liCountryStats = document.createElement('li');
 
       liCountryStats.textContent = content;
+      liCountryStats.classList.add(elementClass, 'left-align');
 
       return liCountryStats;
     };
@@ -167,8 +173,11 @@ function render() {
     const createUlCountryStats = (country) => {
       const ulCountryStats = document.createElement('ul');
       const { name, population } = country;
-      const ilCountryName = createLiCountryStats(name);
-      const ilCountryPopulation = createLiCountryStats(population);
+      const ilCountryName = createLiCountryStats(name, 'li-country-name');
+      const ilCountryPopulation = createLiCountryStats(
+        population,
+        'li-country-population'
+      );
 
       ulCountryStats.appendChild(ilCountryName);
       ulCountryStats.appendChild(ilCountryPopulation);
@@ -186,6 +195,7 @@ function render() {
       liCountry.appendChild(buttonToggleFavorite);
       liCountry.appendChild(imgFlag);
       liCountry.appendChild(ulCountryStats);
+      liCountry.classList.add('horizontal-list');
 
       return liCountry;
     };
@@ -212,11 +222,15 @@ function render() {
 
       divCountries.appendChild(divStats);
       divCountries.appendChild(ulCountries);
+
+      divCountries.classList.add('div-countries');
     };
 
-    const nonFavoriteCountries = getCountriesByFavorite(false);
-    const favoriteCountries = getCountriesByFavorite(true);
+    // Divide between favorites and non favorites
+    const nonFavoriteCountries = getCountriesByIsFavorite(false);
+    const favoriteCountries = getCountriesByIsFavorite(true);
 
+    // Generate both favorite and non favorite divs
     handleDivCountries(nonFavoriteCountries);
     handleDivCountries(favoriteCountries);
   } catch (error) {
