@@ -57,7 +57,7 @@ async function mapCountries(url) {
 }
 
 // Render services
-function calculateStats(countries) {
+function calculateSummary(countries) {
   const numberCountries = countries.length;
   const totalPopulation = countries.reduce((accumulator, current) => {
     return accumulator + current.population;
@@ -91,37 +91,37 @@ function toggleFavorite(index) {
 
 function render() {
   try {
-    //Stats
-    const createPStats = (label = '', value = 0, elementClass = '') => {
-      const pStats = document.createElement('p');
+    //Summary
+    const createPSummary = (label = '', value = 0, elementClass = '') => {
+      const pSummary = document.createElement('p');
 
-      pStats.textContent = `${label}: ${value}`;
-      pStats.classList.add('left-align');
-      pStats.classList.add(elementClass);
+      pSummary.textContent = `${label}: ${value}`;
+      pSummary.classList.add('left-align');
+      pSummary.classList.add(elementClass);
 
-      return pStats;
+      return pSummary;
     };
 
-    const createDivStats = (countries) => {
-      const divStats = document.createElement('div');
-      const stats = calculateStats(countries);
+    const createDivSummary = (countries) => {
+      const divSummary = document.createElement('div');
+      const summary = calculateSummary(countries);
 
-      const pNumberCountries = createPStats(
+      const pNumberCountries = createPSummary(
         'Countries',
-        format(stats.numberCountries),
+        format(summary.numberCountries),
         'p-number-countries'
       );
 
-      const pTotalPopulation = createPStats(
+      const pTotalPopulation = createPSummary(
         'Total population',
-        format(stats.totalPopulation),
+        format(summary.totalPopulation),
         'p-total-population'
       );
 
-      divStats.appendChild(pNumberCountries);
-      divStats.appendChild(pTotalPopulation);
+      divSummary.appendChild(pNumberCountries);
+      divSummary.appendChild(pTotalPopulation);
 
-      return divStats;
+      return divSummary;
     };
 
     //List
@@ -163,28 +163,28 @@ function render() {
       return imgFlag;
     };
 
-    createLiCountryStats = (content, elementClass = '') => {
-      const liCountryStats = document.createElement('li');
+    createLiCountrySummary = (content, elementClass = '') => {
+      const liCountrySummary = document.createElement('li');
 
-      liCountryStats.textContent = content;
-      liCountryStats.classList.add(elementClass, 'left-align');
+      liCountrySummary.textContent = content;
+      liCountrySummary.classList.add(elementClass, 'left-align');
 
-      return liCountryStats;
+      return liCountrySummary;
     };
 
-    const createUlCountryStats = (country) => {
-      const ulCountryStats = document.createElement('ul');
+    const createUlCountrySummary = (country) => {
+      const ulCountrySummary = document.createElement('ul');
       const { name, population } = country;
-      const ilCountryName = createLiCountryStats(name, 'li-country-name');
-      const ilCountryPopulation = createLiCountryStats(
+      const ilCountryName = createLiCountrySummary(name, 'li-country-name');
+      const ilCountryPopulation = createLiCountrySummary(
         format(population),
         'li-country-population'
       );
 
-      ulCountryStats.appendChild(ilCountryName);
-      ulCountryStats.appendChild(ilCountryPopulation);
+      ulCountrySummary.appendChild(ilCountryName);
+      ulCountrySummary.appendChild(ilCountryPopulation);
 
-      return ulCountryStats;
+      return ulCountrySummary;
     };
 
     const createLiCountry = (country) => {
@@ -192,11 +192,11 @@ function render() {
 
       const buttonToggleFavorite = createButtonToggleFavorite(country);
       const imgFlag = createImgFlag(country);
-      const ulCountryStats = createUlCountryStats(country);
+      const ulCountrySummary = createUlCountrySummary(country);
 
       liCountry.appendChild(buttonToggleFavorite);
       liCountry.appendChild(imgFlag);
-      liCountry.appendChild(ulCountryStats);
+      liCountry.appendChild(ulCountrySummary);
       liCountry.classList.add('horizontal-list');
 
       return liCountry;
@@ -219,10 +219,10 @@ function render() {
 
       divCountries.textContent = '';
 
-      const divStats = createDivStats(countries);
+      const divSummary = createDivSummary(countries);
       const ulCountries = createUlCountries(countries);
 
-      divCountries.appendChild(divStats);
+      divCountries.appendChild(divSummary);
       divCountries.appendChild(ulCountries);
 
       divCountries.classList.add('div-countries');
