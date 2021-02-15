@@ -1,16 +1,13 @@
-img {
-  width: 100px;
-  margin: 5px;
-  border-radius: 5px;
-}
-
-button {
-  height: 100px;
-}
-
 #div-parent {
   display: flex;
   flex-direction: row;
+
+  padding: 5px;
+}
+
+.div-countries {
+  width: 50%;
+  margin: 5px;
 
   padding: 10px;
 }
@@ -19,7 +16,21 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
+
   max-width: fit-content;
+}
+
+.horizontal-list > * {
+  margin: 5px;
+}
+
+img {
+  width: 100px;
+  border-radius: 5px;
+}
+
+p {
+  margin: 5px 0px;
 }
 
 .p-number-countries {
@@ -29,10 +40,6 @@ button {
 
 .p-total-population {
   font-size: 1.1rem;
-}
-
-.div-countries {
-  margin: 0px auto;
 }
 
 .li-country-name {
