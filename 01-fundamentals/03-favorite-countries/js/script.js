@@ -3,6 +3,8 @@ let divNonFavorites = null;
 
 let globalCountries = null;
 
+const { format } = new Intl.NumberFormat();
+
 // Main function
 window.addEventListener('load', async (event) => {
   try {
@@ -106,13 +108,13 @@ function render() {
 
       const pNumberCountries = createPStats(
         'Countries',
-        stats.numberCountries,
+        format(stats.numberCountries),
         'p-number-countries'
       );
 
       const pTotalPopulation = createPStats(
         'Total population',
-        stats.totalPopulation,
+        format(stats.totalPopulation),
         'p-total-population'
       );
 
@@ -175,7 +177,7 @@ function render() {
       const { name, population } = country;
       const ilCountryName = createLiCountryStats(name, 'li-country-name');
       const ilCountryPopulation = createLiCountryStats(
-        population,
+        format(population),
         'li-country-population'
       );
 
