@@ -20,9 +20,15 @@ Ao clicar no texto, um campo substitui os dois elementos, permitindo que o conte
 
 #### Cardinal numbers
 
-[Cardinal numbers](01-fundamentals/02-cardinal-numbers) tem o objetivo de mostrar números por extenso. O usuário pode interagir com a aplicação através de um slide, que permite escolher número entre 0 e 999, inclusive.
+[Cardinal numbers](./01-fundamentals/02-cardinal-numbers) tem o objetivo de mostrar números por extenso. O usuário pode interagir com a aplicação através de um slide, que permite escolher número entre 0 e 999, inclusive.
 
 Abaixo, existem dois campos de texto. O primeiro mostra o número selecionado através de algarismos. O segundo mostra o número por extenso. Ambos atualizam conforme o usuário muda sua seleção.
+
+#### Favorite countries
+
+[Favorite countries](./01-fundamentals/03-favorite-countries) inclui todos os países disponpiveis na API [Rest Countries](https://restcountries.eu/). Eles estão divididos em duas listas: favoritos e não favoritos.
+
+Cada lista possui um resumo e cada país possui um botão para favoritar ou desfavoritar. Ao clicar, o país é movido de lista e os resumos são atualizados.
 
 ### Node.js
 
